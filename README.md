@@ -1,4 +1,4 @@
-# Paper2Code
+# paperweaver 
 
 Paper2Code is a production-style LangGraph pipeline that turns an arXiv paper into a structured implementation workspace. It fetches the paper, extracts text and figures, analyzes architecture diagrams with a vision model, plans code modules, runs a lightweight coder-critic loop, and writes artifacts into the local `data/` directory.
 
