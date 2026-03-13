@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "paper2code"
+version = "0.1.0"
+description = "Production-style Paper2Code pipeline built with LangGraph."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = { text = "MIT" }
+authors = [
+  { name = "Paper2Code" }
+]
+dependencies = [
+  "fastapi>=0.116.0",
+  "httpx>=0.28.0",
+  "langgraph>=0.6.0",
+  "openai>=1.66.0",
+  "pydantic>=2.11.0",
+  "pydantic-settings>=2.8.0",
+  "pymupdf>=1.26.0",
+  "python-dotenv>=1.0.1",
+  "python-multipart>=0.0.20",
+  "pytest>=8.3.0",
+  "pytest-asyncio>=0.25.0",
+  "streamlit>=1.44.0",
+  "tenacity>=9.0.0",
+  "typer>=0.16.0",
+  "uvicorn>=0.35.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.11.0",
+]
+
+[project.scripts]
+paper2code = "paper2code.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/paper2code"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
